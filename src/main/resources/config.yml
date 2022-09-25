@@ -1,0 +1,22 @@
+# ロビーに関する設定
+lobby:
+  # ロビーのスポーン座標
+  spawn: world:0:0:0:0:0
+  # ゲームの開始人数　(デフォルト: 1)
+  start_players_size: 1
+  # カウントダウンの秒数 (デフォルト: 60)
+  countdown_seconds: 60
+
+# ゲームに関する設定
+game:
+  # ゲーム開始までの秒数 (デフォルト: 10)
+  starting_seconds: 10
+  # ゲーム時間の秒数 (デフォルト: 600)
+  ingame_seconds: 600
+  # ゲーム終了時の秒数 (デフォルト: 5)
+  endgame_seconds: 5
+
+# 登録済みのステージデータ
+stages:
+  example:
+    spawn: world:0:0:0:0:0
