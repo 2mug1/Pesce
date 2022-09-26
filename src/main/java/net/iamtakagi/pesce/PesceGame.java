@@ -27,8 +27,7 @@ import java.util.List;
 import java.util.UUID;
 import java.util.logging.Level;
 
-import static net.iamtakagi.pesce.Pesce.broadcast;
-import static net.iamtakagi.pesce.Pesce.log;
+import static net.iamtakagi.pesce.Pesce.*;
 import static net.iamtakagi.pesce.PesceConfig.CONFIG_YAML_DEST;
 import static net.iamtakagi.pesce.PesceConfig.loadYamlConfig;
 
@@ -91,7 +90,7 @@ class PesceGame {
         // ゲームプロセス初期化
         process = new GameProcess();
         // プレイヤーリスト初期化
-     players = new LinkedList<>();
+        players = new LinkedList<>();
     }
 
     public PesceGame init() {
@@ -219,6 +218,20 @@ class PesceGame {
             if(state == GameState.ENDGAME) {
                 seconds = PesceGameConfig.getEndgameSeconds();
                 broadcast("ゲーム終了！");
+                // 昇順ソート
+                players.sort((o1, o2) -> o1.getCatches() > o2.getCatches() ? -1 : 1);
+                // 結果発表
+                StringBuilder sb = new StringBuilder()
+                        .append(Style.HORIZONTAL_SEPARATOR).append("\n")
+                        .append(Style.AQUA + Style.BOLD + "結果発表！").append("\n");
+                players.forEach(gamePlayer -> {
+                    Player bukkitPlayer = Bukkit.getPlayer(gamePlayer.getUuid());
+                    if(bukkitPlayer != null) {
+                        sb.append(Style.GRAY + bukkitPlayer.getName() + ": " + Style.WHITE + gamePlayer.getCatches() + "匹").append("\n");
+                    }
+                });
+                sb.append(Style.HORIZONTAL_SEPARATOR);
+                broadcastWithoutPrefix(sb.toString());
                 Bukkit.getOnlinePlayers().forEach(player -> {
                     player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1F, 1F);
                 });
