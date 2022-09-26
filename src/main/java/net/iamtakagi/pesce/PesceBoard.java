@@ -89,6 +89,9 @@ public class PesceBoard implements BoardAdapter {
             }
         }
 
+        // リンクを貼っておく
+        contents.add("");
+        contents.add(Style.WHITE + "github.com/2mug1/Pesce");
         // 線
         contents.add(Style.SCOREBAORD_SEPARATOR);
         return contents;
