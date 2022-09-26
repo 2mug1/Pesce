@@ -72,4 +72,8 @@ stages:
 全ての処理や動作が正しく行われるとは限りません
 
 ## LICENSE
-[MIT License](./LICENSE) (© 2022 iamtakagi)
+MIT License (© 2022- iamtakagi)\
+See [LICENSE](./LICENSE)
+
+### LICENSE (PaperMC/Paper)
+See [Paper/LICENSE.md](https://github.com/PaperMC/Paper/blob/master/LICENSE.md) or [PaperMC/Paper/blob/master/LICENSE.md](https://github.com/PaperMC/Paper/blob/master/LICENSE.md)
