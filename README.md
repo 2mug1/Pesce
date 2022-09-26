@@ -75,5 +75,5 @@ stages:
 MIT License (© 2022- iamtakagi)\
 See [LICENSE](./LICENSE)
 
-### LICENSE (PaperMC/Paper)
+## LICENSE (PaperMC/Paper)
 See [Paper/LICENSE.md](https://github.com/PaperMC/Paper/blob/master/LICENSE.md) or [PaperMC/Paper/blob/master/LICENSE.md](https://github.com/PaperMC/Paper/blob/master/LICENSE.md)
