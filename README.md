@@ -59,17 +59,17 @@ stages:
 - paper-api (1.19.2-R0.1-SNAPSHOT)
 
 ### 依存関係
-- [2mug1/kodaka](https://github.com/2mug1/kodaka)
-- [2mug1/medaka](https://github.com/2mug1/medaka)
-- [2mug1/sudachi](https://github.com/2mug1/sudachi)
-- [2mug1/iroha](https://github.com/2mug1/iroha)
+- [2mug1/kodaka](https://github.com/2mug1/kodaka): コマンドに関連するフレームワーク
+- [2mug1/medaka](https://github.com/2mug1/medaka): メニューに関連するフレームワーク
+- [2mug1/sudachi](https://github.com/2mug1/sudachi): スコアボードに関連するフレームワーク
+- [2mug1/iroha](https://github.com/2mug1/iroha): 様々なユーティリティを提供するフレームワーク
+
+## 動作確認
+- `Paper 1.19.2 #166` 確認済みです
 
 ## 注意
 現在は開発バージョンのみリリースしています\
 全ての処理や動作が正しく行われるとは限りません
-
-## 動作確認
-- `Paper 1.19.2 #166` 確認済みです
 
 ## LICENSE
 [MIT License](./LICENSE) (© 2022 iamtakagi)
