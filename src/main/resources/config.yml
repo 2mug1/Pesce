@@ -9,8 +9,8 @@ lobby:
 
 # ゲームに関する設定
 game:
-  # ゲーム開始までの秒数 (デフォルト: 10)
-  starting_seconds: 10
+  # ゲーム開始までの秒数 (デフォルト: 5)
+  starting_seconds: 5
   # ゲーム時間の秒数 (デフォルト: 600)
   ingame_seconds: 600
   # ゲーム終了時の秒数 (デフォルト: 5)
