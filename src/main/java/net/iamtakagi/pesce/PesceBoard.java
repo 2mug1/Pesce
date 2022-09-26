@@ -96,7 +96,7 @@ public class PesceBoard implements BoardAdapter {
 
     @Override
     public long getInterval() {
-        return 1L;
+        return 2L;
     }
 
     @Override
