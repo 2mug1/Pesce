@@ -100,11 +100,30 @@ public class Pesce extends JavaPlugin {
     }
 
     /**
+     * プレイヤーにテキストを送信します
+     *
+     * @param player
+     * @param text
+     */
+    public static void sendWithoutPrefix(Player player, String text) {
+        player.sendMessage(Style.RESET + text);
+    }
+
+    /**
      * サーバーにいる全プレイヤーにテキストを送信します
      * 
      * @param text
      */
     public static void broadcast(String text) {
         instance.getServer().getOnlinePlayers().forEach(player -> send(player, text));
+    }
+
+    /**
+     * サーバーにいる全プレイヤーにテキストを送信します
+     *
+     * @param text
+     */
+    public static void broadcastWithoutPrefix(String text) {
+        instance.getServer().getOnlinePlayers().forEach(player -> sendWithoutPrefix(player, text));
     }
 }
