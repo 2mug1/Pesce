@@ -1,4 +1,33 @@
+# Intellij IDEA
 .idea/
-paper/
+
+# Paper
+Paper/cache
+Paper/config
+Paper/crash-reports
+Paper/libraries
+Paper/logs
+Paper/plugins
+paper/versions
+Paper/world
+Paper/world_nether
+Paper/world_the_end
+Paper/.console_history
+Paper/banned-ips.json
+Paper/banned-players.json
+Paper/bukkit.yml
+Paper/commands.yml
+Paper/eula.txt
+Paper/help.yml
+Paper/ops.json
+Paper.yml-README.txt
+Paper/permissions.yml
+Paper/server.properties
+paper/spigot.yml
+Paper/usercache.json
+Paper/version_history.json
+Paper/whitelist.json
+
+# Maven
 target/
 dependency-reduced-pom.xml
