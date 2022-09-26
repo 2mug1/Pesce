@@ -24,7 +24,7 @@ import org.bukkit.scheduler.BukkitTask;
 import java.io.IOException;
 import java.util.*;
 
-import static net.iamtakagi.pesce.Pesce.broadcast;
+import static net.iamtakagi.pesce.Pesce.broadcastWithPrefix;
 import static net.iamtakagi.pesce.PesceConfig.CONFIG_YAML_DEST;
 import static net.iamtakagi.pesce.PesceConfig.loadYamlConfig;
 
@@ -223,7 +223,7 @@ class PesceLobby {
                 // 秒数セット
                 seconds = PesceLobbyConfig.getCountdownSeconds();
                 // 全プレイヤーに知らせる
-                broadcast("カウントダウンを開始しました");
+                broadcastWithPrefix("カウントダウンを開始しました");
             }
         }
 
@@ -233,7 +233,7 @@ class PesceLobby {
         public void onSeconds() {
             // カウントダウン途中の処理
             if (state == LobbyState.COUNTDOWN) {
-                broadcast(String.valueOf(seconds));
+                broadcastWithPrefix(String.valueOf(seconds));
                 // 残り秒数が5の倍数でサウンドを鳴らす
                 if (seconds % 5 == 0) {
                     Bukkit.getOnlinePlayers()
@@ -257,7 +257,7 @@ class PesceLobby {
                 final StageVote mostStageVote = stageVoteManger.getMostStageVote();
                 final PesceStage decidedStage = mostStageVote.getStage();
                 // 全プレイヤーに知らせる
-                broadcast("ステージが決定しました: " + decidedStage.getName() + " (投票数: " + mostStageVote.getPolls() + ")");
+                broadcastWithPrefix("ステージが決定しました: " + decidedStage.getName() + " (投票数: " + mostStageVote.getPolls() + ")");
                 // ゲーム取得
                 PesceGame game = Pesce.getInstance().getGame();
                 // ステージ設定
@@ -405,7 +405,7 @@ class PesceLobby {
                     return;
                 // 既に投票済みなら何もしない
                 if (lobbyPlayer.isVoted()) {
-                    Pesce.send(player, Style.RED + "既にステージ投票済みです");
+                    Pesce.sendWithPrefix(player, Style.RED + "既にステージ投票済みです");
                     return;
                 }
                 // ロビープレイヤーの投票フラグを true にする
@@ -413,7 +413,7 @@ class PesceLobby {
                 // １票入れる
                 vote.incrementPolls();
                 // 投票したことを知らせる
-                Pesce.send(player,
+                Pesce.sendWithPrefix(player,
                         Style.GRAY + "ステージ: " + Style.WHITE + vote.getStage().getName() + Style.GRAY + " に投票しました");
             }
         }

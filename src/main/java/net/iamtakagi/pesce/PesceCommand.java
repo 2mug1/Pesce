@@ -7,9 +7,8 @@ import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
 import java.io.IOException;
-import java.util.concurrent.atomic.AtomicReference;
 
-import static net.iamtakagi.pesce.Pesce.send;
+import static net.iamtakagi.pesce.Pesce.sendWithPrefix;
 import static net.iamtakagi.pesce.Pesce.sendWithoutPrefix;
 
 /**
@@ -32,9 +31,9 @@ public class PesceCommand {
                 Location location = player.getLocation();
                 boolean isSuccess = PesceLobbyConfig.setSpawn(location);
                 if (isSuccess) {
-                    send(player, "ロビースポーンの座標設定が完了しました " + LocationUtil.serialize(location));
+                    sendWithPrefix(player, "ロビースポーンの座標設定が完了しました " + LocationUtil.serialize(location));
                 } else {
-                    send(player, "ロビースポーンの座標設定に失敗しました");
+                    sendWithPrefix(player, "ロビースポーンの座標設定に失敗しました");
                 }
             }
         }
@@ -64,9 +63,9 @@ public class PesceCommand {
             public void execute(Player player, String stageName) throws IOException {
                 boolean isSuccess = PesceStageConfig.create(stageName);
                 if (isSuccess) {
-                    send(player, "ステージ「" + stageName + "」を作成しました");
+                    sendWithPrefix(player, "ステージ「" + stageName + "」を作成しました");
                 } else {
-                    send(player, "ステージ「" + stageName + "」の作成に失敗しました");
+                    sendWithPrefix(player, "ステージ「" + stageName + "」の作成に失敗しました");
                 }
             }
         }
@@ -77,9 +76,9 @@ public class PesceCommand {
             public void execute(Player player, String stageName) throws IOException {
                 boolean isSuccess = PesceStageConfig.delete(stageName);
                 if (isSuccess) {
-                    send(player, "ステージ「" + stageName + "」を削除しました");
+                    sendWithPrefix(player, "ステージ「" + stageName + "」を削除しました");
                 } else {
-                    send(player, "ステージ「" + stageName + "」の削除に失敗しました");
+                    sendWithPrefix(player, "ステージ「" + stageName + "」の削除に失敗しました");
                 }
             }
         }
@@ -91,16 +90,16 @@ public class PesceCommand {
                 PesceStage stage = PesceStageConfig.getStages().stream()
                         .filter(other -> other.getName().equals(stageName)).findFirst().orElse(null);
                 if (stage == null) {
-                    send(player, "ステージ「" + stageName + "」は存在しません");
+                    sendWithPrefix(player, "ステージ「" + stageName + "」は存在しません");
                     return;
                 }
                 Location location = player.getLocation();
                 stage.setSpawn(location);
                 boolean isSuccess = PesceStageConfig.update(stage);
                 if (isSuccess) {
-                    send(player, "ステージ「" + stageName + "」のスポーン座標設定が完了しました " + LocationUtil.serialize(location));
+                    sendWithPrefix(player, "ステージ「" + stageName + "」のスポーン座標設定が完了しました " + LocationUtil.serialize(location));
                 } else {
-                    send(player, "ステージ「" + stageName + "」のスポーン座標設定に失敗しました");
+                    sendWithPrefix(player, "ステージ「" + stageName + "」のスポーン座標設定に失敗しました");
                 }
             }
         }

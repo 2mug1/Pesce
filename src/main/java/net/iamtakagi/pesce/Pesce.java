@@ -6,7 +6,6 @@ import net.iamtakagi.iroha.Style;
 import net.iamtakagi.kodaka.Kodaka;
 import net.iamtakagi.medaka.Medaka;
 import net.iamtakagi.sudachi.Sudachi;
-import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -90,12 +89,12 @@ public class Pesce extends JavaPlugin {
     private static final String PLUGIN_PREFIX = Style.AQUA + "[Pesce]";
 
     /**
-     * プレイヤーにテキストを送信します
+     * プレイヤーにプラグインのプレフィックス付きテキストを送信します
      * 
      * @param player
      * @param text
      */
-    public static void send(Player player, String text) {
+    public static void sendWithPrefix(Player player, String text) {
         player.sendMessage(PLUGIN_PREFIX + " " + Style.RESET + text);
     }
 
@@ -110,12 +109,12 @@ public class Pesce extends JavaPlugin {
     }
 
     /**
-     * サーバーにいる全プレイヤーにテキストを送信します
+     * サーバーにいる全プレイヤーにプラグインのプレフィックス付きテキストを送信します
      * 
      * @param text
      */
-    public static void broadcast(String text) {
-        instance.getServer().getOnlinePlayers().forEach(player -> send(player, text));
+    public static void broadcastWithPrefix(String text) {
+        instance.getServer().getOnlinePlayers().forEach(player -> sendWithPrefix(player, text));
     }
 
     /**

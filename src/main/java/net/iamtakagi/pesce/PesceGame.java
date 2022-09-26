@@ -1,6 +1,5 @@
 package net.iamtakagi.pesce;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -8,7 +7,6 @@ import net.iamtakagi.iroha.*;
 import org.bukkit.*;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Entity;
-import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -25,10 +23,8 @@ import org.bukkit.scheduler.BukkitTask;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.UUID;
-import java.util.logging.Level;
 
 import static net.iamtakagi.pesce.Pesce.*;
-import static net.iamtakagi.pesce.PesceConfig.CONFIG_YAML_DEST;
 import static net.iamtakagi.pesce.PesceConfig.loadYamlConfig;
 
 /**
@@ -199,12 +195,12 @@ class PesceGame {
                 // 秒数セット
                 seconds = PesceGameConfig.getStartingSeconds();
                 // 全プレイヤーに知らせる
-                broadcast("ゲームを開始しています...");
+                broadcastWithPrefix("ゲームを開始しています...");
                 return;
             }
             if (state == GameState.INGAME) {
                 seconds = PesceGameConfig.getIngameSeconds();
-                broadcast("ゲーム開始！");
+                broadcastWithPrefix("ゲーム開始！");
                 // フリーズ解除
                 players.forEach(gamePlayer -> gamePlayer.setAllowMovement(true));
                 // プレイヤーリセット & 釣り竿配布
@@ -217,7 +213,7 @@ class PesceGame {
             }
             if(state == GameState.ENDGAME) {
                 seconds = PesceGameConfig.getEndgameSeconds();
-                broadcast("ゲーム終了！");
+                broadcastWithPrefix("ゲーム終了！");
                 // 昇順ソート
                 players.sort((o1, o2) -> o1.getCatches() > o2.getCatches() ? -1 : 1);
                 // 結果発表
@@ -244,7 +240,7 @@ class PesceGame {
         public void onSeconds() {
             // スターティング途中の処理
             if (state == GameState.STARTING) {
-                broadcast(String.valueOf(seconds));
+                broadcastWithPrefix(String.valueOf(seconds));
                 Bukkit.getOnlinePlayers()
                         .forEach(player -> player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 1F, 2F));
             }
@@ -383,7 +379,7 @@ class PesceGame {
                                                 // 昇順ソート
                                                 players.sort((o1, o2) -> o1.getCatches() > o2.getCatches() ? -1 : 1);
                                                 // どのプレイヤーが何を釣ったかを全プレイヤーに教える
-                                                broadcast(Style.WHITE + player.getName() + Style.GRAY + " が " + Style.WHITE + entity.getName() + Style.GRAY + " を釣り上げた！さかな～！");
+                                                broadcastWithPrefix(Style.WHITE + player.getName() + Style.GRAY + " が " + Style.WHITE + entity.getName() + Style.GRAY + " を釣り上げた！さかな～！");
                                                 // プラス
                                                 gamePlayer.incrementCatches();
                                                 /* 釣り上げた時にサウンドやエフェクトを発生させることで快感を得ることによって中毒性が上がりそう！ */
