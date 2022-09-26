@@ -104,7 +104,14 @@ class PesceLobby {
     private StageVoteManger stageVoteManger;
 
     public PesceLobby() {
-        // 何もしない
+         // 初期状態は待機中
+         state = LobbyState.WAITING;
+         // プロセス初期化
+         process = new LobbyProcess();
+         // ステージ投票管理 初期化
+         stageVoteManger = new StageVoteManger();
+         // プレイヤーリスト初期化
+         players = new LinkedList<>();
     }
 
     /**
@@ -116,14 +123,6 @@ class PesceLobby {
     public PesceLobby init() {
         // イベントリスナー登録
         Bukkit.getPluginManager().registerEvents(new LobbyListener(), Pesce.getInstance());
-        // 初期状態は待機中
-        state = LobbyState.WAITING;
-        // プロセス初期化
-        process = new LobbyProcess();
-        // ステージ投票管理 初期化
-        stageVoteManger = new StageVoteManger();
-        // プレイヤーリスト初期化
-        players = new LinkedList<>();
         // インスタンスを返す
         return this;
     }

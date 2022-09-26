@@ -86,18 +86,17 @@ class PesceGame {
     private PesceStage stage;
 
     public PesceGame() {
-        // 何もしない
-    }
-
-    public PesceGame init() {
-        // イベントリスナー登録
-        Bukkit.getPluginManager().registerEvents(new GameListener(), Pesce.getInstance());
         // 状態初期化
         state = GameState.INACTIVE;
         // ゲームプロセス初期化
         process = new GameProcess();
         // プレイヤーリスト初期化
-        players = new LinkedList<>();
+     players = new LinkedList<>();
+    }
+
+    public PesceGame init() {
+        // イベントリスナー登録
+        Bukkit.getPluginManager().registerEvents(new GameListener(), Pesce.getInstance());
         return this;
     }
 
