@@ -2,31 +2,31 @@
 .idea/
 
 # Paper
-Paper/cache
-Paper/config
-Paper/crash-reports
-Paper/libraries
-Paper/logs
-Paper/plugins
-paper/versions
-Paper/world
-Paper/world_nether
-Paper/world_the_end
-Paper/.console_history
-Paper/banned-ips.json
-Paper/banned-players.json
-Paper/bukkit.yml
-Paper/commands.yml
-Paper/eula.txt
-Paper/help.yml
-Paper/ops.json
-Paper.yml-README.txt
-Paper/permissions.yml
-Paper/server.properties
-paper/spigot.yml
-Paper/usercache.json
-Paper/version_history.json
-Paper/whitelist.json
+paper-local/cache
+paper-local/config
+paper-local/crash-reports
+paper-local/libraries
+paper-local/logs
+paper-local/plugins
+paper-local/versions
+paper-local/world
+paper-local/world_nether
+paper-local/world_the_end
+paper-local/.console_history
+paper-local/banned-ips.json
+paper-local/banned-players.json
+paper-local/bukkit.yml
+paper-local/commands.yml
+paper-local/eula.txt
+paper-local/help.yml
+paper-local/ops.json
+paper.yml-README.txt
+paper-local/permissions.yml
+paper-local/server.properties
+paper-local/spigot.yml
+paper-local/usercache.json
+paper-local/version_history.json
+paper-local/whitelist.json
 
 # Maven
 target/
