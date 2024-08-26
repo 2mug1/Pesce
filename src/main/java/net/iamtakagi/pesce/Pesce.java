@@ -80,7 +80,7 @@ public class Pesce extends JavaPlugin {
     }
 
     // プラグインのプレフィックス
-    private static final String PLUGIN_PREFIX = Style.AQUA + "[Pesce]";
+    private static final String PLUGIN_PREFIX = Style.AQUA + "[魚釣りゲーム]";
 
     /**
      * プレイヤーにプラグインのプレフィックス付きテキストを送信します
