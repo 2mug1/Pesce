@@ -2,7 +2,7 @@
 
 ## これはなに
 [PaperMC/Paper](https://github.com/PaperMC/Paper) 対応のサーバプラグイン\
-体たらくで退屈な魚釣りを多人数かつゲーム形式でワイワイのんびり楽しく遊べるようにするゲームプラグインです
+魚釣りを多人数かつゲーム形式でワイワイのんびり楽しく遊べるようにするゲームプラグインです
 
 ![2022-09-26_06 00 28](https://user-images.githubusercontent.com/46530214/192165770-782e9ad3-d48f-4cf2-8653-5364905a3a7a.png)
 ![2022-09-26_06 00 33](https://user-images.githubusercontent.com/46530214/192165776-d6737594-6d84-4411-af66-3f3d85853281.png)
