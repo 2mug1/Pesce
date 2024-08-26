@@ -10,12 +10,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.logging.Level;
-
-/**
- * さかな～～～！！！🐟
- * ちなみに Pesce はイタリア語で "魚" という意味です
- * プラグイン構成の主役となるクラス
- */
 public class Pesce extends JavaPlugin {
 
     // プラグインのインスタンス
